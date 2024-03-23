@@ -12,10 +12,14 @@ function getComputerChoice() {
 
 
 function playRound(userChoice, computerChoice) {
-    if ((userChoice == "rock" & computerChoice == "paper") | (userChoice == "paper" & computerChoice == "scissors") | (userChoice == "scissors" & computerChoice == "rock")) {
+    if ((userChoice == "rock" & computerChoice == "paper") |
+            (userChoice == "paper" & computerChoice == "scissors") |
+            (userChoice == "scissors" & computerChoice == "rock")) {
         return 1;
     }
-    if ((userChoice == "paper" & computerChoice == "rock") | (userChoice == "scissors" & computerChoice == "paper") | (userChoice == "rock" & computerChoice == "scissors")) {
+    if ((userChoice == "paper" & computerChoice == "rock") |
+            (userChoice == "scissors" & computerChoice == "paper") |
+            (userChoice == "rock" & computerChoice == "scissors")) {
         return 0;
     }
     if (userChoice == computerChoice) {
@@ -32,23 +36,31 @@ function playGame() {
         const computerChoice = getComputerChoice();
         switch (playRound(userChoice.toLowerCase(), computerChoice.toLowerCase())) {
             case 0:
-                console.log("You lost round " + (i + 1) + ". " + computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1) + " beats " + userChoice.charAt(0).toUpperCase() + userChoice.slice(1) + ".");
+                console.log("You lost round " + (i + 1) + ". " +
+                    computerChoice.charAt(0).toUpperCase() +
+                    computerChoice.slice(1) + " beats " +
+                    userChoice.charAt(0).toUpperCase() + userChoice.slice(1) + ".");
                 computerScore++;
                 break;
             case 1:
-                console.log("You won round " + (i + 1) + ". " + userChoice.charAt(0).toUpperCase() + userChoice.slice(1) + " beats " + computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1) + ".");
+                console.log("You won round " + (i + 1) + ". " +
+                userChoice.charAt(0).toUpperCase() + userChoice.slice(1) + " beats " +
+                computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1) + ".");
                 userScore++;
                 break;
             case 2:
-                console.log("Round " + (i + 1) + " was a draw. You both chose " + userChoice.charAt(0).toUpperCase() + userChoice.slice(1) + ".");
+                console.log("Round " + (i + 1) + " was a draw. You both chose " +
+                userChoice.charAt(0).toUpperCase() + userChoice.slice(1) + ".");
                 break;
         }
     }
     var userWin = userScore > computerScore;
     if (userWin) {
-        console.log("You won the game. The score was " + userScore + " to " + computerScore + ".");
+        console.log("You won the game. The score was " + userScore + " to " +
+            computerScore + ".");
     } else {
-        console.log("You lost the game. The score was " + userScore + " to " + computerScore + ".");
+        console.log("You lost the game. The score was " + userScore + " to " +
+            computerScore + ".");
     }
 }
 
